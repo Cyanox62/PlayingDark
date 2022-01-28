@@ -2,26 +2,26 @@
 
 namespace PlayingDark
 {
-    public class PlayingDark : Plugin<Config>
-    {
-        private EventHandlers ev;
+	public class PlayingDark : Plugin<Config>
+	{
+		private EventHandlers ev;
 
-        public override void OnEnabled()
+		public override void OnEnabled()
 		{
-            ev = new EventHandlers();
+			ev = new EventHandlers();
 
-            Exiled.Events.Handlers.Server.RoundStarted += ev.OnRoundStart;
-            Exiled.Events.Handlers.Player.ChangingRole += ev.OnSetRole;
+			Exiled.Events.Handlers.Server.RoundStarted += ev.OnRoundStart;
+			Exiled.Events.Handlers.Player.ChangingRole += ev.OnSetRole;
 		}
 
-        public override void OnDisabled()
+		public override void OnDisabled()
 		{
-            Exiled.Events.Handlers.Server.RoundStarted -= ev.OnRoundStart;
-            Exiled.Events.Handlers.Player.ChangingRole -= ev.OnSetRole;
+			Exiled.Events.Handlers.Server.RoundStarted -= ev.OnRoundStart;
+			Exiled.Events.Handlers.Player.ChangingRole -= ev.OnSetRole;
 
-            ev = null;
-        }
+			ev = null;
+		}
 
-        public override string Author => "Cyanox";
-    }
+		public override string Author => "Cyanox";
+	}
 }

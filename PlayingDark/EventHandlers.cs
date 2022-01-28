@@ -26,7 +26,6 @@ namespace PlayingDark
 			{
 				if (room.Zone == Exiled.API.Enums.ZoneType.LightContainment || room.Zone == Exiled.API.Enums.ZoneType.HeavyContainment)
 				{
-					room.LightIntensity = 0f;
 					room.Color = Color.black;
 				}
 				else if (room.Zone == Exiled.API.Enums.ZoneType.Entrance)
@@ -35,6 +34,8 @@ namespace PlayingDark
 				}
 			}
 		}
+
+		internal void OnWaitingForPlayers() { }
 
 		internal void OnRoundStart()
 		{

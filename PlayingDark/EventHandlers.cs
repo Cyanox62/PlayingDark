@@ -1,11 +1,8 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using MEC;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace PlayingDark
@@ -34,7 +31,7 @@ namespace PlayingDark
 				}
 				else if (room.Zone == Exiled.API.Enums.ZoneType.Entrance)
 				{
-					room.Color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+					room.Color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 				}
 			}
 		}

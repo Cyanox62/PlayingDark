@@ -12,7 +12,6 @@ namespace PlayingDark
 		private List<RoleType> SCPs = new List<RoleType>()
 		{
 			RoleType.Scp049,
-			RoleType.Scp0492,
 			RoleType.Scp096,
 			RoleType.Scp106,
 			RoleType.Scp173,
@@ -34,8 +33,6 @@ namespace PlayingDark
 				}
 			}
 		}
-
-		internal void OnWaitingForPlayers() { }
 
 		internal void OnRoundStart()
 		{

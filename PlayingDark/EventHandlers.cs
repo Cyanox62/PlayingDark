@@ -1,6 +1,9 @@
-﻿using Exiled.API.Features;
+﻿using CustomPlayerEffects;
+using Exiled.API.Extensions;
+using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using MEC;
+using Mirror;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -53,13 +56,21 @@ namespace PlayingDark
 
 		internal void OnSetRole(ChangingRoleEventArgs ev)
 		{
-			Timing.CallDelayed(0.3f, () =>
+			Team team = ev.NewRole.GetTeam();
+			if (team != Team.SCP && team != Team.RIP)
 			{
-				if (!ev.Player.HasItem(ItemType.Flashlight))
+				Timing.CallDelayed(0.3f, () =>
 				{
-					ev.Player.AddItem(ItemType.Flashlight);
-				}
-			});
+					if (!ev.Player.HasItem(ItemType.Flashlight))
+					{
+						ev.Player.AddItem(ItemType.Flashlight);
+					}
+				});
+			}
+			else if (team == Team.SCP)
+			{
+				ev.Player.EnableEffect<Visuals939>();
+			}
 		}
 	}
 }

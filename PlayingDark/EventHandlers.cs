@@ -1,9 +1,7 @@
-﻿using CustomPlayerEffects;
-using Exiled.API.Extensions;
+﻿using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using MEC;
-using Mirror;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,7 +26,7 @@ namespace PlayingDark
 			{
 				if (room.Zone == Exiled.API.Enums.ZoneType.LightContainment || room.Zone == Exiled.API.Enums.ZoneType.HeavyContainment)
 				{
-					room.Color = Color.black;
+					room.FlickerableLightController.ServerFlickerLights(float.MaxValue);
 				}
 				else if (room.Zone == Exiled.API.Enums.ZoneType.Entrance)
 				{
@@ -66,10 +64,6 @@ namespace PlayingDark
 						ev.Player.AddItem(ItemType.Flashlight);
 					}
 				});
-			}
-			else if (team == Team.SCP)
-			{
-				ev.Player.EnableEffect<Visuals939>();
 			}
 		}
 	}
